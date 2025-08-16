@@ -1,0 +1,480 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    background-color: rgb(78, 166, 254);
+}
+.header{
+    width: 100%;
+    height: 150px;
+    /* background: linear-gradient(to top, rgb(250, 224, 219),rgb(247, 148, 128)); */
+    background-color: rgb(255, 165, 20);
+    transition: 0.8s ease-in;
+}
+html{
+    scroll-behavior: smooth;
+    overflow: scroll;
+}
+.Main p,.header img, h1{
+    padding-inline: 3%;
+} 
+.slide{
+    width: 200px;
+    height: 109vh;
+    background: rgb(255, 165, 20);
+    position: absolute;
+    transition: 0.5s ease;
+    transform: translateX(-200px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    position: fixed; 
+}
+.block{
+    display: inline-flex;
+    font-size: 14px;
+    color: navy;
+    padding: 10px;
+    text-align: center;
+} 
+ul li a{
+    display: block;
+    margin-right: 5px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    font-family: Tahoma;
+    font-size: 14px;
+    text-decoration: none;
+    color: rgb(4, 106, 207);
+    padding-left: 46px;
+}
+ul li a:hover{
+    background-color: dodgerblue;
+    color: white;
+}
+/* @media */
+.nav{
+    float: right;
+    top: 10px;
+    margin-right: 20px;
+    position: sticky;
+    top: 0;
+}
+.nav ul li{
+    display: inline-block;
+    margin-left: 25px;
+}
+.nav ul li a{
+    font-family: Tahoma;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+}
+.nav ul li a:hover{
+    background-color: transparent;
+    color: maroon;
+    transition: 0.5s;
+}
+/* end */
+input{
+    display: none;
+    visibility: hidden;
+    position: fixed;
+}
+.toggle{
+    position: fixed;
+    height: 30px;
+    width: 30px;
+    top: 5px;
+    left: 5px;
+    z-index: 1;
+    cursor: pointer;
+    border-radius: 2px;
+    background-color: transparent;
+    border: 2px solid rgb(255, 165, 20);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 75px;
+}
+.toggle .common{
+    position: absolute;
+    height: 2px;
+    width: 20px;
+    background-color: dodgerblue;
+    border-radius: 50px;
+    transition: 0.5s ease;
+}
+.toggle .top{
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.toggle .middle{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.toggle .bottom{
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+input:checked ~ .toggle .top{
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(45deg);
+}
+input:checked ~ .toggle .bottom{
+    left: 2px;
+    top: 14px;
+    width: 25px;
+    transform: rotate(-45deg);
+}
+input:checked ~ .toggle .middle{
+    opacity: 0;
+    transform: translateX(20px);
+}
+input:checked ~ .slide{
+    transform: translateX(0);
+}
+.Logo{
+    width: auto;
+    height: 100px;
+}
+.Logo img{
+    width: 600px;
+    height: 140px;
+}
+ marquee{
+    background-color: rgb(25, 125, 225);
+    color: white;
+    padding: 10px;
+    font-size: 27px;
+    font-weight: 400;
+    position: static;
+ }
+.container{
+    width: 100%;
+    min-height: 500px;
+    font-family: Arial;
+    font-size: 38px;
+    font-weight: 500;
+    color: rgb(233, 233, 233);
+    text-align: center;
+    background: url(flower\ bouquets.jpg);
+    background-size: cover;
+    background-position: center;
+    letter-spacing: 2px;
+}
+.container h1{
+    padding-top: 200px;
+}
+.content p{
+    font-size: 15px;
+    line-height: 42px;
+    justify-content: center;
+    margin-left: 80px;
+    margin-right: 80px;
+}
+.content img{
+    width: 80%;
+    height: auto;
+    margin-inline: 20px;
+    border-radius: 12px;
+}
+/* .content #pr{
+    
+} */
+.container2 img{
+    width: 900px;
+    height: 600px;
+    float: right;
+    padding-right: 80px;
+
+}
+/* inserted */
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  /* #myImg:hover {opacity: 0.8;} */
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */   
+  }
+  
+  /* Modal Content (image) */
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;   
+  }
+  
+  /* Caption of Modal Image */
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+  
+  /* Add Animation */
+  .modal-content, #caption {  
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  
+  @-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+  }
+  
+  /* The Close Button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 700px){
+    .modal-content {
+        width: 100%;
+        height: auto;
+        
+    }
+}
+  /* inserted */
+.container2 h2{
+    font-family: Arial;
+    font-size: 37px; 
+    font-weight: 500;
+    padding-left: 30px;
+    color: rgb(255, 187, 16);
+}
+.container2 ul{
+    font-size: 15px;
+    line-height: 42px;
+    justify-content: center;
+    margin-left: 80px;
+    margin-right: 80px;
+    list-style: decimal-leading-zero;
+}
+/* inserted */
+.Gallery{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    /* grid-auto-rows: 1fr; */
+    padding: auto;
+
+    @media (width >= 550px){
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media (width >= 900px){
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media (width >= 1000px){
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.Gallery{
+    padding: 30px;
+}
+div.gallery {
+    margin: 5px;
+    /* float: left;  */
+    width: 270px;
+    border-radius: 18px;
+    transition: 0.4s ease-in;
+} 
+div.gallery img {
+    width: 100%;
+    height: auto;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+}
+  
+div.desc {
+    padding: 15px;
+    text-align: center;
+    background-color: rgb(255, 187, 13);
+    color: rgb(245, 245, 245);
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    transition: 0.4s ease-in;
+}
+ /* inserted */
+
+/* Page styles */
+.slide a svg{
+    height: 20px;
+    width: 20px;
+    margin-right: 3px;
+    margin-bottom: 0;
+}
+footer{
+    /* background: linear-gradient(to bottom, rgb(250, 224, 219),rgb(243, 60, 24)); */
+    background-color: rgb(255, 165, 20);
+    color: rgb(2, 2, 95);
+    font-family: Arial;
+    font-size: 18px;
+    padding: 45px;
+    text-align: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px){
+    marquee{
+        font-size: 15px;
+        padding: 7px;
+    }
+    .slide{
+        width: 160px;
+    }    
+    body{
+        background-color: #e4e3e3;
+    }
+    .Logo img{
+        width: 100%;
+        height: auto;
+    }
+    /* Label ul li a{
+        padding-top: 5px;
+        padding-bottom: 10px;
+    }  */
+    .header{
+        width: 100%;
+        height: auto;
+        /* position: fixed; */
+
+    }
+    footer{
+        font-size: 12px;
+    }
+    footer img{
+        width: 60px;
+        height: auto;
+        float: left;
+    }
+    .container{
+        font-size: 25px;
+    }
+    .container h1{
+        padding-top: 250px;
+    }
+    .content p{
+        font-size: 14px;
+        line-height: 30px;
+        padding-inline: 20px;
+        margin: 0;   
+    }
+    .content img{
+        width: 90%;
+        height: auto;
+        margin-inline: 20px;
+
+    }
+    .container2 img{
+        width: 100%;
+        height: auto;
+        padding-inline: 20px;
+        float: none;
+    }
+    .container2 h2{
+        font-size: 23px; 
+        padding-left: 20px;
+    }
+    .container2 ul{
+
+        font-size: 12px;
+        line-height: 29px;
+    }
+    div.gallery{
+        width: 80%;
+        height: auto;
+        margin-inline: 30px;
+    }
+    body{
+        background-color: rgb(78, 166, 254);
+        color: white;
+    }
+    div.desc {
+        background-color: rgb(255, 187, 13);
+        color: rgb(245, 245, 245);
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+
+    }
+    .nav{
+        display: none;
+        visibility: hidden;
+    }
+}
+@media(width >=1020px){
+    label{
+        visibility: hidden;
+    }
+    .nav{
+        visibility: visible;
+    }
+    .container2 img:hover{
+        animation: shake 0.5s;
+        animation-iteration-count: infinite;
+    }
+    @keyframes shake {
+        50% { transform: translate(-5px, 5px) rotate(-3deg); }
+      }
+}
+@media(width <= 1020px){
+    /* label{
+        visibility: visible;
+    } */
+    .nav{
+        display: none;
+    }
+}  
