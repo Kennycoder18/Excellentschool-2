@@ -353,7 +353,7 @@ i{
     justify-content: center;
     color: #ffffff;
     background-color: #e0e0e0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%),url(excellent\ play\ ground.JPG);
+    background: url(pupils-2.JPG);
     background-position: center;
     background-size: cover;
 }
@@ -423,7 +423,7 @@ form input::placeholder{
 }
 /* end */
 .Label{
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%),url(face.JPG);
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%),url(face-3.jpg);
     background-position: center;
     background-size: cover;
     color: #fff;
