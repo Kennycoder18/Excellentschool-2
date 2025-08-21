@@ -79,3 +79,21 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 });
 // ...existing code...
+
+// ...existing code...
+
+// Scroll-based animation using Intersection Observer
+document.addEventListener('DOMContentLoaded', function() {
+  const animatedElements = document.querySelectorAll('.scroll-animate');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.8 });
+
+  animatedElements.forEach(el => observer.observe(el));
+});
+
+// ...existing code...
