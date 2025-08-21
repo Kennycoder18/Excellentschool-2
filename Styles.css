@@ -335,7 +335,7 @@ i{
 .project-statistics{
     display: flex;
     /* background:linear-gradient(to bottom, rgb(255, 255, 255), rgb(148, 148, 148)); */
-    background-color: rgb(166, 166, 166);
+    background-color: rgb(201, 201, 201);
     color: rgb(80, 80, 80);
     padding: 30px;
     text-align: center;
@@ -386,7 +386,7 @@ i{
 form{
     border: 1px solid grey;
     border-radius: 20px;
-    backdrop-filter: blur(7px); 
+    backdrop-filter: blur(4px); 
     margin-inline: 600px;
     padding-top: 60px;
     padding-bottom: 60px
