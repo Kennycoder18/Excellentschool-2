@@ -90,6 +90,23 @@
             <h2>&copy;2025 Excellent Nursery and Primary School Website</h2>
         </footer>
     </div>
-    <script src="index.js"></script>    
+    <script src="index.js"></script>
+    <script>
+        // Scroll-based animation using Intersection Observer
+        document.addEventListener('DOMContentLoaded', function() {
+        const animatedElements = document.querySelectorAll('.scroll-animate');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+            });
+        }, { threshold: 0.8 });
+
+        animatedElements.forEach(el => observer.observe(el));
+        });
+
+        // ...existing code...
+    </script>    
 </body>
 </html>
