@@ -14,27 +14,28 @@
       <marquee behavior="smooth" direction="left">*<b>Welcome to Excellent Nursery and Primary School Website*Here we are to reach you, through Online presence</b>*</marquee>
         <div class="header">
             <label>
-                <input type="checkbox">
-                <div class="toggle">
-                    <span class="top common"></span>
-                    <span class="middle common"></span>
-                    <span class="bottom common"></span>
-                </div>
-                <div class="slide">
-                    <div class="block">
-                        <img src="School Badge.png" alt="School badge" style="height: 39px; width: 40px;">
-                        <h1>Menu</h1>
+                <!-- Off-canvas Hamburger Button -->
+                <button id="menu-toggle" aria-label="Open menu" class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <!-- Off-canvas Menu -->
+                <nav id="offcanvas-menu" class="offcanvas-menu">
+                    <div class="menu-header">
+                      <img src="School Badge.png" alt="School badge" style="height: 39px; width: 40px;">
+                      <h1>Menu</h1>
+                      <button id="menu-close" aria-label="Close menu">&times;</button>
                     </div>
                     <ul>
-                        <ul>
-                          <li><a href="Index.html">HOME</a></li>
-                          <li><a href="Projects.html">PROJECTS</a></li>
-                          <li><a href="About.html">ABOUT</a></li>
-                          <li><a href="Services.html">SERVICES</a></li>
-                          <li><a href="Contact.html">CONTACTS</a></li>
-                        </ul>
+                        <li><a href="Index.html">HOME</a></li>
+                        <li><a href="Projects.html">PROJECTS</a></li>
+                        <li><a href="About.html">ABOUT</a></li>
+                        <li><a href="Services.html">SERVICES</a></li>
+                        <li><a href="Contact.html">CONTACTS</a></li>
                     </ul>
-                </div>
+                </nav>
+                <div id="menu-backdrop" class="menu-backdrop"></div>
             </label>
             <div class="Logo">
                 <a href="Index.html"><img src="School Badge copy_2.png" alt="School badge"></a>
@@ -59,15 +60,15 @@
     </div>
     <br>
     <div class="content">
-      <p>We designed an in-house applied education system used to create all-round learners. The system ignites creativity, confidence, global citizenship, team working, productivity and problem-solving at such a young age.</p><br><br>
-       <img src="door_mat making (3).jpg" alt="pupils in doormat activity">
-      <p id="pr">Our learning timetables includes skills development alongside the UNEB curriculum. This makes us outstanding from other schools. This eliminates the culture of  having half baked learners.</p> 
+      <p class="scroll-animate">We designed an in-house applied education system used to create all-round learners. The system ignites creativity, confidence, global citizenship, team working, productivity and problem-solving at such a young age.</p><br><br>
+       <img src="door_mat making (3).jpg" alt="pupils in doormat activity" class="scroll-animate">
+      <p id="pr" class="scroll-animate">Our learning timetables includes skills development alongside the UNEB curriculum. This makes us outstanding from other schools. This eliminates the culture of  having half baked learners.</p> 
     </div>
     <div class="container2">
         <img id="myImg" src="baking (2).jpg" alt="Pupils in Baking activity"><br>
         <div id="myModal" class="modal">
             <span class="close">&times;</span>
-            <img class="modal-content" class="scroll-animate" id="img01">
+            <img class="modal-content" class="scroll-animate" id="img01" class="scroll-animate">
             <div id="caption"></div>
           </div>
         <h2>Skills trained include;</h2>
