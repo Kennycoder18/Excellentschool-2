@@ -1,3 +1,35 @@
+// ...existing code...
+
+// Off-canvas menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const menuToggle = document.getElementById('menu-toggle');
+  const offcanvasMenu = document.getElementById('offcanvas-menu');
+  const menuBackdrop = document.getElementById('menu-backdrop');
+  const menuClose = document.getElementById('menu-close');
+
+  function openMenu() {
+    offcanvasMenu.classList.add('open');
+    menuBackdrop.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    offcanvasMenu.classList.remove('open');
+    menuBackdrop.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  menuToggle.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', closeMenu);
+  menuBackdrop.addEventListener('click', closeMenu);
+
+  // Optional: Close menu with ESC key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+});
+
+// ...existing code...
+
 // Create the button
 const backToTopBtn = document.createElement('button');
 backToTopBtn.innerText = '↑';
