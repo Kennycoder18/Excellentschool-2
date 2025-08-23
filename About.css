@@ -8,7 +8,6 @@
 .header{
     width: 100%;
     height: 150px;
-    /* background: linear-gradient(to top, rgb(250, 224, 219),rgb(247, 148, 128)); */
     background-color: rgb(255, 165, 20);
     transition: 0.8s ease-in;
 }
@@ -19,33 +18,160 @@ html{
 .Main p, .header img, h1{
     padding-inline: 5%;
 } 
-.slide{
-    width: 200px;
-    height: 109vh;
-    background: rgb(255, 165, 20);
-    position: absolute;
-    transition: 0.5s ease;
-    transform: translateX(-200px);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    position: fixed; 
+/* Off-canvas menu styles */
+.menu-toggle {
+  position: relative;
+  margin-top: -40px;
+  margin-left: 30px;
+  top: 100px;
+  right: 20px;
+  float: left;
+  z-index: 1201;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
 }
-.block{
-    display: inline-flex;
-    font-size: 14px;
-    color: navy;
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 60%;
+  background: dodgerblue;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 240px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+  z-index: 1202;
+  transition: left 0.3s cubic-bezier(.22,1,.36,1);
+  padding: 0 0 2rem 0;
+  overflow-y: auto;
+}
+
+.offcanvas-menu.open {
+  left: 0;
+}
+.menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+.offcanvas-menu ul {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+  margin-left: 45px;
+}
+.offcanvas-menu ul li {
+  margin-bottom: 2.2rem;
+}
+.offcanvas-menu ul li a {
+  color: #046acf;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+.offcanvas-menu ul li a:hover {
+  color: #fff;
+  background: #046acf;
+  padding: 0.3em 0.8em;
+  border-radius: 4px;box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+}
+#menu-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #ffa514;
+  cursor: pointer;
+  line-height: 1;
+}
+.menu-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.2);
+  z-index: 1200;
+  opacity: 0;
+  pointer-events: none;}
+/* @media */
+.nav{
+    float: right;
+    top: 10px;
+    margin-right: 20px;
+    position: sticky;
+    top: 0;
+    transition: opacity 0.3s;
+}
+.nav ul li{
+    display: inline-block;
+    margin-left: 25px;
+    margin-right: 25px;
+    position: relative;
+}
+.nav ul li a{
+    font-family: Tahoma;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+
+}
+
+.menu-backdrop.open {
+  opacity: 1;
+  pointer-events: all;
+}
+@media (max-width: 600px) {
+  .offcanvas-menu {
+    /* width: 80vw; */
+    min-width: 180px;
+    max-width: 320px;
+  }
+}
+body{
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+.Logo{
+    width: auto;
+    height: 100px;
+}
+.Logo img{
+    width: 600px;
+    height: 140px;
+    margin: 0;
+}
+ marquee{
+    background-color: rgb(25, 125, 225);
+    color: white;
     padding: 10px;
-    text-align: center;
-} 
+    font-size: 27px;
+    font-weight: 400;
+    position: static;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+}
 ul li a{
     display: block;
-    margin-right: 5px;
-    padding-top: 15px;
-    padding-bottom: 10px;
     font-family: Tahoma;
     font-size: 14px;
     text-decoration: none;
     color: rgb(4, 106, 207);
-    padding-left: 46px;
 }
 ul li a:hover{
     background-color: dodgerblue;
@@ -75,88 +201,17 @@ ul li a:hover{
     transition: 0.5s;
 }
 /* end */
-input{
-    display: none;
-    visibility: hidden;
-    position: fixed;
+/* ...existing code... */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
-.toggle{
-    position: fixed;
-    height: 30px;
-    width: 30px;
-    top: 5px;
-    left: 5px;
-    z-index: 1;
-    cursor: pointer;
-    border-radius: 2px;
-    background-color: transparent;
-    border: 2px solid rgb(255, 165, 20);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    position: fixed;
-    top: 75px;
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
-.toggle .common{
-    position: absolute;
-    height: 2px;
-    width: 20px;
-    background-color: dodgerblue;
-    border-radius: 50px;
-    transition: 0.5s ease;
-}
-.toggle .top{
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-.toggle .middle{
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-.toggle .bottom{
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-}
-input:checked ~ .toggle .top{
-    left: 2px;
-    top: 14px;
-    width: 25px;
-    transform: rotate(45deg);
-}
-input:checked ~ .toggle .bottom{
-    left: 2px;
-    top: 14px;
-    width: 25px;
-    transform: rotate(-45deg);
-}
-input:checked ~ .toggle .middle{
-    opacity: 0;
-    transform: translateX(20px);
-}
-input:checked ~ .slide{
-    transform: translateX(0);
-}
-.Logo{
-    width: auto;
-    height: 100px;
-}
-.Logo img{
-    width: 600px;
-    height: 140px;
-}
-/* .Image img{
-    width: 100%;
-    max-height: 888px;
-} */
-  marquee{
-    background-color: rgb(25, 125, 225);
-    color: white;
-    padding: 10px;
-    font-size: 27px;
-    font-weight: 400;
-    position: static;
- }
+/* ...existing code... */
 .container{
     width: 100%;
     min-height: 500px;
@@ -165,7 +220,7 @@ input:checked ~ .slide{
     font-weight: 500;
     color: rgb(233, 233, 233);
     text-align: center;
-    background: /* linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%),*/url(assembly.JPG); 
+    background: url(assembly.JPG); 
     background-size: cover;
     background-position: center;
     letter-spacing: 2px;
@@ -174,14 +229,6 @@ input:checked ~ .slide{
     padding-top: 200px;
     vertical-align: center;
 }
-/* hr{
-    width: 1400px;
-    height: 5px;
-    margin-left: 110px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    background-color: maroon;
-} */
 .content h2{
     color: rgb(48, 1, 1);
    font-family: Arial;
@@ -196,58 +243,6 @@ input:checked ~ .slide{
     margin-left: 80px;
     margin-right: 80px;
 }
-/* i{
-    color: maroon;
-} */
-/* .blocks{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    box-sizing: border-box;
-    text-align: center;
-    justify-content: center;
-    padding-top: 50px;
-}
-.section h2{
-    font-family: Arial;
-    font-size: 50px; 
-    font-weight: 600;
-    padding-left: 93px;
-
-} */
-/* .motto{
-    background-color: red;
-    color: rgb(228, 228, 228);
-    width: 30%;
-    height: 300px;
-    padding-top: 130px;
-    padding-left: 20px;
-    border-radius: 50px;
-    font-family: Tahoma;
-    box-shadow:  0 0 8px rgba(0, 0, 0, 5);
-}
-.mission{
-    background-color: blue;
-    color: rgb(228, 228, 228);
-    width: 30%;
-    height: 300px;
-    padding-top: 120px;
-    margin-left: 20px;
-    border-radius: 50px;
-    font-family: Tahoma;
-    box-shadow:  0 0 8px rgba(0, 0, 0, 5);
-}
-.vision{
-    background-color: green;
-    color: rgb(228, 228, 228);
-    width: 30%;
-    height: 300px;
-    padding-top: 130px;
-    margin-left: 20px;
-    border-radius: 50px;
-    font-family: Tahoma;
-    box-shadow:  0 0 8px rgba(0, 0, 0, 5);
-} */
 .container2 {
     width: 100%;
     min-height: 500px;
@@ -259,100 +254,6 @@ input:checked ~ .slide{
     background-position: center;
     padding: 30px;
 }
-/* .container2 h1{
-    font-family: Arial;
-    font-size: 80px;
-    font-weight: 500;
-    color: rgb(233, 233, 233);
-}
-.container2 p{
-    font-size: 15px;
-    line-height: 42px;
-    justify-content: center;
-    padding-top: 90px;
-    padding-inline: 50px;
-}
-.container2 a{
-    font-family: Helvetica;
-    font-size: 26px;
-    font-weight: 100;
-    text-decoration: none;
-    background-color: rgb(255, 245, 243);
-    color: rgb(0, 81, 255);
-    padding: 23px;
-    border-radius: 50px;
-    box-shadow:  0 0 8px rgba(0, 0, 0, 5);
-    
-} */
-/* .showcase{
-    background-color: #e0e0e0;
-    text-align: center;
-    box-shadow:  0 0 14px rgba(0, 0, 0, 0.8);
-}
-.showcase h1{
-    font-family: Arial;
-    font-size: 60px;
-    font-weight: 500;
-    margin: 30px;
-    padding: 15px;   
-}
-.showcase img{
-    width: 500px;
-    height: 300px;
-    margin-left: 30px;
-    padding: 10px;
-    border-radius: 50%;
-    box-shadow:  0 0 14px rgba(0, 0, 0, 0.8);
-    transition: 0.5s ease-in-out;
-}
-.showcase p{
-    font-size: 15px;
-    line-height: 37px;
-}  */
-/* .project-statistics{
-    display: flex;
-    background:linear-gradient(to bottom, rgb(255, 255, 255), rgb(148, 148, 148));
-    color: rgb(80, 80, 80);
-    padding: 30px;
-    text-align: center;
-    justify-content: center;
-    gap: 100px;
-} 
-.w3-xlarge{
-    font-size: 60px;
-    padding-top: 40%;
-} */
-/* .container3{
-    width: 100%;
-    min-height: 500px;
-    text-align: center;
-    justify-content: center;
-    color: #ffffff;
-    background-color: #e0e0e0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%),url(excellent\ play\ ground.JPG);
-    background-position: center;
-    background-size: cover;
-}
-.container3 h2{
-    font-family: Arial;
-    font-size: 60px;
-    font-weight: 500;
-    padding-top: 200px;
-}
-#Contacts{
-    background-color: rgb(250, 224, 219);
-    text-align: center;
-}
-#Contacts h1{
-    font-size: 68px;
-    padding: 30px;
-}
-.Label{
-    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5)50%, rgba(0, 0, 0, 0.5)50%),url(face.JPG);
-    background-position: center;
-    background-size: cover;
-    color: #fff;
-} */
  .details{
     background-color: rgb(145, 199, 253);
     justify-content: center;
@@ -373,15 +274,33 @@ input:checked ~ .slide{
     margin-right: 80px;
 }
 .staff{
+    background-image:  url(School-block.JPG);
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
     text-align: center;
     padding: 20px;
 }
 .staff .avatar{
+    text-align: center;
     transition: 0.3s ease-in;
     vertical-align: middle;
     width: 400px;
     height: auto;
     border-radius: 50%
+}
+.staff h2{
+    
+    font-size: 50px; 
+    font-weight: 600;
+    padding-left: 93px;
+    color: gray;
+}
+.staff p{
+    line-height: normal;
+    justify-content: center;
+    margin-left: 80px;
+    margin-right: 80px;
 }
 .staff .title p{
     font-family: Arial;
@@ -421,7 +340,6 @@ input:checked ~ .slide{
     margin: 12px;
 }
 footer{
-    /* background: linear-gradient(to bottom, rgb(250, 224, 219),rgb(243, 60, 24)); */
     background-color: rgb(255, 165, 20);
     color: rgb(5, 5, 95);
     font-family: Arial;
@@ -446,15 +364,9 @@ footer{
         width: 100%;
         height: auto;
     }
-    /* Label ul li a{
-        padding-top: 4px;
-        padding-bottom: 5px;
-    }  */
     .header{
         width: 100%;
         height: auto;
-        /* position: fixed; */
-        box-shadow:  0 0 14px rgba(0, 0, 0, 0.8);
     }
     footer{
         font-size: 12px;
@@ -469,16 +381,19 @@ footer{
         padding-left: 70px;
     }
     .content p{
+        color: rgb(71, 71, 71);
         font-size: 14px;
         line-height: 30px;
         padding-inline: 20px;
         margin: 0;   
     }
     .details h2{
+        color: rgb(48, 1, 1);
         font-size: 32px;
         padding-left: 70px;
     }
     .details p{
+        color: rgb(71, 71, 71);
         font-size: 14px;
         line-height: 30px;
         padding-inline: 20px;
@@ -491,6 +406,16 @@ footer{
     .staff .avatar{
         width: 200px;
         height: auto;
+    }
+    .staff h2{
+        font-size: 32px;
+        padding-left: 70px;
+    }
+    .staff p{
+        font-size: 14px;
+        line-height: 30px;
+        padding-inline: 20px;
+        margin: 0;  
     }
     .author h2{
         padding-left: 20px;
@@ -526,9 +451,6 @@ footer{
     }
 }
 @media(width <= 1020px){
-    /* label{
-        visibility: visible;
-    } */
     .nav{
         display: none;
     }
