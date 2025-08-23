@@ -1,4 +1,11 @@
 <?php
+// Enable output buffering and gzip compression
+if (extension_loaded('zlib') && !ob_start("ob_gzhandler")) {
+    ob_start();
+} else {
+    ob_start();
+}
+
 // index.php
 echo "Hello, World!";
 // Email details
