@@ -14,27 +14,28 @@
         <marquee behavior="smooth" direction="left">*<b>Welcome to Excellent Nursery and Primary School Website*Here we are to reach you, through Online presence</b>*</marquee>
         <div class="header">
             <label>
-                <input type="checkbox">
-                <div class="toggle">
-                    <span class="top common"></span>
-                    <span class="middle common"></span>
-                    <span class="bottom common"></span>
-                </div>
-                <div class="slide">
-                    <div class="block">
+                <!-- Off-canvas Hamburger Button -->
+                <button id="menu-toggle" aria-label="Open menu" class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <!-- Off-canvas Menu -->
+                <nav id="offcanvas-menu" class="offcanvas-menu">
+                    <div class="menu-header">
                         <img src="School Badge.png" alt="School badge" style="height: 39px; width: 40px;">
                         <h1>Menu</h1>
+                        <button id="menu-close" aria-label="Close menu">&times;</button>
                     </div>
                     <ul>
-                        <ul>
-                            <li><a href="Index.html">HOME</a></li>
-                            <li><a href="Projects.html">PROJECTS</a></li>
-                            <li><a href="About.html">ABOUT</a></li>
-                            <li><a href="Services.html">SERVICES</a></li>
-                            <li><a href="Contact.html">CONTACTS</a></li>
-                        </ul>
+                        <li><a href="Index.html">HOME</a></li>
+                        <li><a href="Projects.html">PROJECTS</a></li>
+                        <li><a href="About.html">ABOUT</a></li>
+                        <li><a href="Services.html">SERVICES</a></li>
+                        <li><a href="Contact.html">CONTACTS</a></li>
                     </ul>
-                </div>
+                </nav>
+                <div id="menu-backdrop" class="menu-backdrop"></div>
             </label>
             <div class="Logo">
                 <a href="Index.html"><img src="School Badge copy_2.png" alt="School badge"></a>
@@ -54,13 +55,13 @@
     </header>
     <div class="Main">
         <div class="container">
-            <h1>Services</h1>
+            <h1 class="scroll-animate">Services</h1>
         </div>
         <hr>
         <div class="content">
-            <h2>Our Services</h2><br><br>
-            <p>We are a mixed <b>day</b> and <b>boarding</b> school that offers a comprehensive UNEB Curriculum in a coducive learning environment alongside practical skills.</p>
-            <p>We comprise a team of <b>Diplomatic</b> experienced teaching stuff that is capable of oofering better servives to learners in a disciplined manner.</p>
+            <h2 class="scroll-animate">Our Services</h2><br><br>
+            <p class="scroll-animate">We are a mixed <b>day</b> and <b>boarding</b> school that offers a comprehensive UNEB Curriculum in a coducive learning environment alongside practical skills.</p>
+            <p class="scroll-animate">We comprise a team of <b>Diplomatic</b> experienced teaching stuff that is capable of oofering better servives to learners in a disciplined manner.</p>
         </div>
         <div class="sectioncards">
             <div class="cards">
@@ -69,15 +70,15 @@
                     <h3>UNEB curriculum</h3>
                     <p>We offer a holistic curriculum approved by The Ministry of Education and Sports.</p>
                 </div>
-                <div class="card-2">
+                <div class="card-2" class="scroll-animate">
                     <h3>Learning environment</h3>
                     <p>We have a conducive environment for learners to feel home, make fun and co-relate with others.</p>
                 </div>
-                <div class="card-3">
+                <div class="card-3" class="scroll-animate">
                     <h3>Skilled teachers</h3>
                     <p>We have proffessional and experienced teaching stuff that are dedicated to their work.</p>
                 </div>
-                <div class="card-4">
+                <div class="card-4" class="scroll-animate">
                     <img src="skills.png" alt=" skills">
                     <h3>Practical skills</h3>
                     <p>We offer practical skills through D.I.T learning courses to help learners acquire skills for job creation rather than job seeking.</p>
