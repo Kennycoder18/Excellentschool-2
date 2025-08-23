@@ -477,8 +477,8 @@ footer{
         margin-inline: 30px;
     }
     body{
-        background-color: rgb(78, 166, 254);
-        color: white;
+        background-color: white;
+        color: rgb(29, 29, 29);
     }
     div.desc {
         background-color: rgb(255, 187, 13);
