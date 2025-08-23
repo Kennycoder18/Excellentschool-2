@@ -6,12 +6,12 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 body{
-    background-color: rgb(78, 166, 254);
+    background-color: white;
+    color: grey;
 }
 .header{
     width: 100%;
     height: 150px;
-    /* background: linear-gradient(to top, rgb(250, 224, 219),rgb(247, 148, 128)); */
     background-color: rgb(255, 165, 20);
     transition: 0.8s ease-in;
 }
@@ -22,38 +22,6 @@ html{
 .Main p,.header img, h1{
     padding-inline: 3%;
 } 
-.slide{
-    width: 200px;
-    height: 109vh;
-    background: rgb(255, 165, 20);
-    position: absolute;
-    transition: 0.5s ease;
-    transform: translateX(-200px);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    position: fixed; 
-}
-.block{
-    display: inline-flex;
-    font-size: 14px;
-    color: navy;
-    padding: 10px;
-    text-align: center;
-} 
-ul li a{
-    display: block;
-    margin-right: 5px;
-    padding-top: 15px;
-    padding-bottom: 10px;
-    font-family: Tahoma;
-    font-size: 14px;
-    text-decoration: none;
-    color: rgb(4, 106, 207);
-    padding-left: 46px;
-}
-ul li a:hover{
-    background-color: dodgerblue;
-    color: white;
-}
 /* @media */
 .nav{
     float: right;
@@ -65,80 +33,145 @@ ul li a:hover{
 .nav ul li{
     display: inline-block;
     margin-left: 25px;
+    margin-right: 25px;
+    position: relative;
 }
 .nav ul li a{
     font-family: Tahoma;
     font-weight: 600;
     font-size: 18px;
     color: white;
-}
-.nav ul li a:hover{
-    background-color: transparent;
-    color: maroon;
-    transition: 0.5s;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
 }
 /* end */
-input{
-    display: none;
-    visibility: hidden;
-    position: fixed;
+/* Off-canvas menu styles */
+.menu-toggle {
+  position: relative;
+  margin-top: -40px;
+  margin-left: 30px;
+  top: 100px;
+  right: 20px;
+  float: left;
+  z-index: 1201;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
 }
-.toggle{
-    position: fixed;
-    height: 30px;
-    width: 30px;
-    top: 5px;
-    left: 5px;
-    z-index: 1;
-    cursor: pointer;
-    border-radius: 2px;
-    background-color: transparent;
-    border: 2px solid rgb(255, 165, 20);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    position: fixed;
-    top: 75px;
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 60%;
+  background: dodgerblue;
+  border-radius: 2px;
+  transition: 0.3s;
 }
-.toggle .common{
-    position: absolute;
-    height: 2px;
-    width: 20px;
-    background-color: dodgerblue;
-    border-radius: 50px;
-    transition: 0.5s ease;
+.offcanvas-menu {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 240px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 2px 0 12px rgba(0,0,0,0.15);
+  z-index: 1202;
+  transition: left 0.3s cubic-bezier(.22,1,.36,1);
+  padding: 0 0 2rem 0;
+  overflow-y: auto;
 }
-.toggle .top{
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+
+.offcanvas-menu.open {
+  left: 0;
 }
-.toggle .middle{
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+.menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
 }
-.toggle .bottom{
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+.offcanvas-menu ul {
+  list-style: none;
+  padding: 1rem;
+  margin: 0;
+  margin-left: 45px;
 }
-input:checked ~ .toggle .top{
-    left: 2px;
-    top: 14px;
-    width: 25px;
-    transform: rotate(45deg);
+.offcanvas-menu ul li {
+  margin-bottom: 2.2rem;
 }
-input:checked ~ .toggle .bottom{
-    left: 2px;
-    top: 14px;
-    width: 25px;
-    transform: rotate(-45deg);
+.offcanvas-menu ul li a {
+  color: #046acf;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: color 0.2s;
 }
-input:checked ~ .toggle .middle{
-    opacity: 0;
-    transform: translateX(20px);
+.offcanvas-menu ul li a:hover {
+  color: #fff;
+  background: #046acf;
+  padding: 0.3em 0.8em;
+  border-radius: 4px;box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
 }
-input:checked ~ .slide{
-    transform: translateX(0);
+#menu-close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #ffa514;
+  cursor: pointer;
+  line-height: 1;
+}
+.menu-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.2);
+  z-index: 1200;
+  opacity: 0;
+  pointer-events: none;}
+/* @media */
+.nav{
+    float: right;
+    top: 10px;
+    margin-right: 20px;
+    position: sticky;
+    top: 0;
+    transition: opacity 0.3s;
+}
+.nav ul li{
+    display: inline-block;
+    margin-left: 25px;
+    margin-right: 25px;
+    position: relative;
+}
+.nav ul li a{
+    font-family: Tahoma;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+    
+}
+
+.menu-backdrop.open {
+  opacity: 1;
+  pointer-events: all;
+}
+@media (max-width: 600px) {
+  .offcanvas-menu {
+    /* width: 80vw; */
+    min-width: 180px;
+    max-width: 320px;
+  }
+}
+body{
+    overflow: hidden;
+    scroll-behavior: smooth;
 }
 .Logo{
     width: auto;
@@ -147,6 +180,7 @@ input:checked ~ .slide{
 .Logo img{
     width: 600px;
     height: 140px;
+    margin: 0;
 }
  marquee{
     background-color: rgb(25, 125, 225);
@@ -155,19 +189,33 @@ input:checked ~ .slide{
     font-size: 27px;
     font-weight: 400;
     position: static;
- }
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
 .container{
     width: 100%;
     min-height: 500px;
     font-family: Arial;
-    font-size: 38px;
+    font-size: 25px;
     font-weight: 500;
     color: rgb(233, 233, 233);
     text-align: center;
-    background: url(flower\ bouquets.jpg);
+    background: /*linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(f,f,f,f)50%),*/url(flower\ bouquets.jpg); 
     background-size: cover;
     background-position: center;
     letter-spacing: 2px;
+}
+/* ...existing code... */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 .container h1{
     padding-top: 200px;
@@ -201,8 +249,6 @@ input:checked ~ .slide{
     cursor: pointer;
     transition: 0.3s;
   }
-  
-  /* #myImg:hover {opacity: 0.8;} */
   
   /* The Modal (background) */
   .modal {
@@ -309,7 +355,6 @@ input:checked ~ .slide{
     display: grid;
     grid-template-columns: 1fr;
     gap: 14px;
-    /* grid-auto-rows: 1fr; */
     padding: auto;
 
     @media (width >= 550px){
@@ -327,7 +372,6 @@ input:checked ~ .slide{
 }
 div.gallery {
     margin: 5px;
-    /* float: left;  */
     width: 270px;
     border-radius: 18px;
     transition: 0.4s ease-in;
@@ -358,7 +402,6 @@ div.desc {
     margin-bottom: 0;
 }
 footer{
-    /* background: linear-gradient(to bottom, rgb(250, 224, 219),rgb(243, 60, 24)); */
     background-color: rgb(255, 165, 20);
     color: rgb(2, 2, 95);
     font-family: Arial;
@@ -383,15 +426,9 @@ footer{
         width: 100%;
         height: auto;
     }
-    /* Label ul li a{
-        padding-top: 5px;
-        padding-bottom: 10px;
-    }  */
     .header{
         width: 100%;
         height: auto;
-        /* position: fixed; */
-
     }
     footer{
         font-size: 12px;
@@ -471,9 +508,6 @@ footer{
       }
 }
 @media(width <= 1020px){
-    /* label{
-        visibility: visible;
-    } */
     .nav{
         display: none;
     }
